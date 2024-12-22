@@ -63,7 +63,6 @@ def modify_exe(input_path):
 
 
 if __name__ == '__main__':
-    # Replace 'test.exe' with the actual path of your .exe file for testing
     input_file = input("Enter the path of the trialsrising.exe file, or press Enter to use the default path: ")
     if modify_exe(input_file):
         print("Process completed.")
