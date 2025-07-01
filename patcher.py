@@ -37,6 +37,9 @@ def modify_exe(input_path):
                     for i, byte in enumerate(replacement_bytes):
                         data[offset + i] = byte
                     return True, None
+                elif read_bytes == replacement_bytes:
+                    print(f"Bytes already modified at offset: {hex(offset)}, no changes made.")
+                    return False, "Program already patched"
                 else:
                     print(f"These bytes: {read_bytes.hex()} did not match expected bytes: {expected_bytes.hex()}")
                 return False, "Bytes did not match"
