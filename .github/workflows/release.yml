@@ -4,6 +4,13 @@ on:
   push:
     tags:
     - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+  workflow_dispatch:
+    inputs:
+      release_version:
+        description: 'Release version (e.g., v1.0.0)'
+        required: true
+        type: string
+  
 
 jobs:
   build:
@@ -48,3 +55,5 @@ jobs:
       with:
         artifacts: "trials_patcher"
         token: ${{ secrets.GITHUB_TOKEN }}
+        tag: ${{ github.event.inputs.release_version || github.ref_name }}
+        name: ${{ github.event.inputs.release_version || github.ref_name }}
