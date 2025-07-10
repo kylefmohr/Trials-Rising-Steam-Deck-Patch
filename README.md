@@ -3,7 +3,7 @@ Disabling Easy Anti-Cheat in trialsrising.exe so that the game works on Linux + 
 
 **Updated 2025-07-10**: This patcher now works differently. 
 ### Easy method:
-Download the latest release from the releases tab, and run it on your Steam Deck. It will patch the game for you. If you've previously patched the game, go to the game's properties in Steam > Installed Files > Verify Integrity of Game Files to restore the original file, then run this patcher.
+Download the latest release [from the releases tab](https://github.com/kylefmohr/Trials-Rising-Steam-Deck-Patch/releases), and run it on your Steam Deck. It will patch the game for you. If you've previously patched the game, go to the game's properties in Steam > Installed Files > Verify Integrity of Game Files to restore the original file, then run this patcher.
 
 ### Run from source:
 via the command line on your Steam Deck/Linux machine:
