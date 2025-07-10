@@ -1,0 +1,50 @@
+name: Package Application with Pyinstaller and Create Release
+
+on:
+  push:
+    tags:
+    - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Package Application
+      uses: JackMcKew/pyinstaller-action-linux@main
+      with:
+        path: .
+        spec: patcher.spec
+
+    - name: Prepare artifact
+      run: mv dist/patcher dist/trials_patcher
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: trials_patcher
+        path: dist/trials_patcher
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+    - name: Download artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: trials_patcher
+
+    - name: Make executable
+      run: chmod +x trials_patcher
+
+    - name: Create and publish release
+      uses: ncipollo/release-action@v1
+      with:
+        artifacts: "trials_patcher"
+        token: ${{ secrets.GITHUB_TOKEN }}
