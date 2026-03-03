@@ -1,32 +1,26 @@
 # Trials-Rising-Steam-Deck-Patch
 Disabling Easy Anti-Cheat in trialsrising.exe so that the game works on Linux + Steam Deck
 
-**Updated 2025-07-10**: This patcher now works differently. 
-### Easy method:
-Download the latest release [from the releases tab](https://github.com/kylefmohr/Trials-Rising-Steam-Deck-Patch/releases), and run it on your Steam Deck. 
 
-For example (or if you'd just like to copy and paste), ssh into your Steam Deck or open a terminal and use these commands:
+## Usage:
+Run this script on the Linux device that Trials: Rising is installed on with:
 
-```
-wget https://github.com/kylefmohr/Trials-Rising-Steam-Deck-Patch/releases/download/v1.2/trials_patcher-linux
-chmod +x trials_patcher-linux
-./trials_patcher-linux
-```
-It will patch the game for you. If you've previously patched the game, go to the game's properties in Steam > Installed Files > Verify Integrity of Game Files to restore the original file, then run this patcher.
+`python3 patch.py`
 
-### Run from source:
-via the command line on your Steam Deck/Linux machine:
-```git clone https://github.com/kylemohr/Trials-Rising-Steam-Deck-Patch.git
-cd Trials-Rising-Steam-Deck-Patch
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-python patcher.py
-```
+If the patcher says it couldn't find the file, you can specify the path to `trialsrising.exe` as a command line argument, like so:
 
-if this fails at the `pip install` step, you may need to install `python3-pip` via `pacman`. This will likely require you to run `sudo steamos-devmode enable` first, then `sudo pacman -Syu python3-pip`. **You don't need to do this if you're using the easy method above.**
+`python3 patch.py /path/to/trialsrising.exe`
 
-### I highly recommend using GE-Proton-9-1 for this game
+
+---
+
+**Updated 2026-03-03**: Simplified and improved the process! It should now work for both Steam and Uplay versions of the game.
+
+The patching process no longer relies on checksums, so it should continue to work even if the game is updated. 
+
+Fun fact: as a byproduct of disabling EasyAntiCheat, this patch allows you to play the game on macOS! I use [Crossover](https://www.codeweavers.com/crossover), but other Wine-based solutions should work as well. 
+
+### I highly recommend using GE-Proton-9-1 for this game if you're on Steam Deck
 You can find instructions for how to do this [here](https://www.rockpapershotgun.com/how-to-install-proton-ge-on-the-steam-deck)
 
 I tried a ton of different flavors and versions of Proton, and lots of them crash, some of them are capped at 30fps, and the controller doesn't work on others. GE-Proton-9-1 had none of these issues.
