@@ -35,7 +35,7 @@ jobs:
       run: pyinstaller patcher.spec
 
     - name: Prepare artifact for release
-      run: mv dist/patcher dist/trials_patcher-linux
+      run: mv dist/patch dist/trials_patcher-linux
 
     - name: Create and Publish Release
       uses: ncipollo/release-action@v1
