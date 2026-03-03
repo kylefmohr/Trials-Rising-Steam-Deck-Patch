@@ -2,7 +2,7 @@
 
 
 a = Analysis(
-    ['patcher.py'],
+    ['patch.py'],
     pathex=[],
     binaries=[],
     datas=[],
@@ -22,7 +22,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='patcher',
+    name='patch',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
