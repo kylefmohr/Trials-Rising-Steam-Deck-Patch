@@ -14,6 +14,7 @@ else:
 # However the issue is that this sequence of original_bytes shows up many many times in the executable, 
 # so we would end up patching many places that don't need to be patched, 
 # causing unintended functionality (likely) or else just causing the program to crash (extremely likely)
+# instead, we specify *just* enough bytes such that the sequence only occurs in one place:
 original_bytes = b'\x48\x89\x54\x24\x10\x55\x56\x57\x48\x81\xEC\xF0\x00\x00\x00\x48\xC7\x44\x24\x78'
 # translated (from Ghidra (used to disassemble this program)):                                                                                  15a0b00dc(*)  
 #        14178b6c0 48 89 54        MOV        qword ptr [RSP + 0x10],RDX
